@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>@yield('page-title') | Laravel Start 1</title>
+        <title>@yield('page-title') | Comics</title>
 
         {{-- Stili nell'head --}}
         <link rel="stylesheet" href="css/style.css">
@@ -25,13 +25,6 @@
 
                     <div class="col">
 
-                        <div>
-                            <img class="gatto-img" src="{{ Vite::asset('resources/img/gatto.webp') }}" alt="Gatto">
-                        </div>
-
-                        <div class="gatto-bg">
-                            QUESTO DIV AVRA' COME SFONDO IL GATTO
-                        </div>
 
                         @yield('main-content')
 
