@@ -31,7 +31,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        return view('comics.store');
+
+        $data = $request->all();
+        dd($data);
+        // return view('comics.store');
 
     }
 
