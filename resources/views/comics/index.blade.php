@@ -6,6 +6,13 @@
 <h1>
    Comics
 </h1>
+
+<div class="mb-4">
+   <a href="{{ route('comics.create') }}" class="btn btn-warning w-100">
+      + Aggiungi
+   </a>
+</div>
+
 <table class="table">
    <thead>
      <tr>

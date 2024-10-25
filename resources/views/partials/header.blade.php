@@ -10,6 +10,11 @@
             'label' => 'Chi siamo',
             'active' => true,
         ],
+        [
+            'url' => route('comics.index'),
+            'label' => 'Comics',
+            'active' => true,
+        ],
 
       
     ];
