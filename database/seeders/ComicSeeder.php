@@ -41,7 +41,9 @@ class ComicSeeder extends Seeder
             $implodeWriters = implode('|', $singleComic['writers']);
             $comic->writers = $implodeWriters;
             $comic->save();
-            // dd($comic);
+        
+
+
 
         }
     }

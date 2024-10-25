@@ -33,9 +33,34 @@ class ComicController extends Controller
     {
 
         $data = $request->all();
-        dd($data);
-        // return view('comics.store');
+        // dd($data);
+        $comic = new Comic();
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        // dd($data['thumb']);
+        $priceNumber = floatval($data['price']);
+        $comic->price =  $priceNumber;
+        // dd($priceNumber);
+        $comic->series = $data['series'];
+        // dd($data['series']);
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+        // con il metodo json
+        $explodeArtists = explode(',', $data['artists']);
+        $jsonArtists= json_encode($explodeArtists);
+        // dd($jsonArtists);
+        $comic->artists = $jsonArtists ;
+        // $implodeWriters = implode('|', $data['writers']);
+        $correctwriters = str_replace(',','|', $data['writers']);
+        $comic->writers = $correctwriters;
+        $comic->save();
 
+        
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
+        // oppure
+        // return redirect()->route('comics.index');
+        // dd($comic);
     }
 
     /**
