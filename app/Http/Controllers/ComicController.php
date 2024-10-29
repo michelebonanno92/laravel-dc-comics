@@ -9,6 +9,7 @@ class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * Visualizza un elenco della risorsa.
      */
     public function index()
     {
@@ -19,6 +20,7 @@ class ComicController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * Mostra il modulo per creare una nuova risorsa.
      */
     public function create()
     {
@@ -28,6 +30,8 @@ class ComicController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *Archivia una risorsa appena creata nell'archivio.
+     * 
      */
     public function store(Request $request)
     {
@@ -65,6 +69,7 @@ class ComicController extends Controller
 
     /**
      * Display the specified resource.
+     * Visualizza la risorsa specificata.   
      */
     public function show(Comic $comic)
     {
@@ -73,22 +78,28 @@ class ComicController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * Mostra il modulo per modificare la risorsa specificata.
      */
     public function edit(Comic $comic)
     {
-        //
+       
+        return view('comics.edit', compact('comic'));
+       
     }
 
     /**
      * Update the specified resource in storage.
+     * Aggiorna la risorsa specificata nell'archivio.
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        // 
+
     }
 
     /**
      * Remove the specified resource from storage.
+     * Rimuovere la risorsa specificata dall'archivio.
      */
     public function destroy(Comic $comic)
     {

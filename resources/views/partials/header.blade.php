@@ -1,20 +1,18 @@
 @php
     $links = [
         [
-            'url' => '/',
-            'label' => 'Home',
-            'active' => true,
-        ],
-        [
-            'url' => '/chi-siamo',
-            'label' => 'Chi siamo',
-            'active' => true,
-        ],
-        [
             'url' => route('comics.index'),
             'label' => 'Comics',
-            'active' => true,
         ],
+        [
+            'url' => route('comics.create'),
+            'label' => 'New Comic',
+          
+        ],
+        // [
+        //     'url' => route('comics.show', ['comic' => $comic->id]) ,
+        //     'label' => 'Comic',
+        // ],
 
       
     ];
@@ -25,15 +23,9 @@
         <ul>
             @foreach ($links as $link)
                 <li>
-                    @if ($link['active'])
-                        <a href="{{ $link['url'] }}">
-                            {{ $link['label'] }}
-                        </a>
-                    @else
-                        <del>
-                            {{ $link['label'] }}
-                        </del>
-                    @endif
+                    <a href="{{ $link['url'] }}">
+                        {{ $link['label'] }}
+                    </a>
                 </li>
             @endforeach
         </ul>

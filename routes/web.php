@@ -14,10 +14,7 @@ use App\Http\Controllers\ComicController;
      });
     // return view('comics.index'', compact('argomento 1', 'argomento 2'));
 
-    Route::get('/chi-siamo', function () {
-    return view('subpages.about', [
-    ]);
-    });
+
 
     Route::resource('comics', ComicController::class);
     // crea le 7 rotte per la crud
