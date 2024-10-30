@@ -39,25 +39,25 @@ class ComicController extends Controller
         $data = $request->all();
         // dd($data);
         $comic = new Comic();
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        // dd($data['thumb']);
-        $priceNumber = floatval($data['price']);
-        $comic->price =  $priceNumber;
-        // dd($priceNumber);
-        $comic->series = $data['series'];
-        // dd($data['series']);
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        // con il metodo json
-        $explodeArtists = explode(',', $data['artists']);
-        $jsonArtists= json_encode($explodeArtists);
-        // dd($jsonArtists);
-        $comic->artists = $jsonArtists ;
-        // $implodeWriters = implode('|', $data['writers']);
-        $correctwriters = str_replace(',','|', $data['writers']);
-        $comic->writers = $correctwriters;
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // // dd($data['thumb']);
+        // $priceNumber = floatval($data['price']);
+        // $comic->price =  $priceNumber;
+        // // dd($priceNumber);
+        // $comic->series = $data['series'];
+        // // dd($data['series']);
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        // // con il metodo json
+        // $explodeArtists = explode(',', $data['artists']);
+        // $jsonArtists= json_encode($explodeArtists);
+        // // dd($jsonArtists);
+        // $comic->artists = $jsonArtists ;
+        // // $implodeWriters = implode('|', $data['writers']);
+        // $correctwriters = str_replace(',','|', $data['writers']);
+        // $comic->writers = $correctwriters;
         $comic->save();
 
         
@@ -88,14 +88,14 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      * Mostra il modulo per modificare la risorsa specificata.
      */
-    public function edit(Comic $comic)
+    public function edit(string $id)
     {
         // per gestire l'errore 404
         // if (!$comic){
         //     abort(404);
         // }
         // oppure scrivendo 
-        $comic = Comic::findOrFail($comic);
+        $comic = Comic::findOrFail($id);
 
         return view('comics.edit', compact('comic'));
        
@@ -107,29 +107,32 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        // $comic = Comic::findOrFail($comic);
+
         $data = $request->all();
         // dd($data);
-        $comic = Comic::findOrFail($comic);
         // rispetto all'create qui non mi serve una nuova istanza di comic ma modifico quella già creata
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        // dd($data['thumb']);
-        $priceNumber = floatval($data['price']);
-        $comic->price =  $priceNumber;
-        // dd($priceNumber);
-        $comic->series = $data['series'];
-        // dd($data['series']);
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        // con il metodo json
-        $explodeArtists = explode(',', $data['artists']);
-        $jsonArtists= json_encode($explodeArtists);
-        // dd($jsonArtists);
-        $comic->artists = $jsonArtists ;
-        // $implodeWriters = implode('|', $data['writers']);
-        $correctwriters = str_replace(',','|', $data['writers']);
-        $comic->writers = $correctwriters;
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // // dd($data['thumb']);
+        // $priceNumber = floatval($data['price']);
+        // $comic->price =  $priceNumber;
+        // // dd($priceNumber);
+        // $comic->series = $data['series'];
+        // // dd($data['series']);
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        // // con il metodo json
+        // $explodeArtists = explode(',', $data['artists']);
+        // $jsonArtists= json_encode($explodeArtists);
+        // // dd($jsonArtists);
+        // $comic->artists = $jsonArtists ;
+        // // $implodeWriters = implode('|', $data['writers']);
+        // $correctwriters = str_replace(',','|', $data['writers']);
+        // $comic->writers = $correctwriters;
+        
         $comic->update($data);
 
         

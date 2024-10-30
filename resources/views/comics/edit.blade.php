@@ -105,8 +105,8 @@
       id="artists" 
       name="artists" 
       aria-describedby="artists-help" 
-      placeholder="Inserisci gli artisti"
-      value="{{$comic->artists}}">
+      placeholder="Inserisci gli artisti">
+      {{-- value="{{$comic->artists}}" --}}
      <div id="artists-help" class="form-text">
          Inserisci i nomi degli artisti separati da virgole
       </div>
@@ -120,8 +120,8 @@
         id="writers" 
         name="writers" 
         aria-describedby="writers-help" 
-        placeholder="Inserisci gli scrittori"
-        value="{{$comic->writers}}">
+        placeholder="Inserisci gli scrittori">
+        {{-- value="{{$comic->writers}}" --}}
       <div id="writers-help" class="form-text">
           Inserisci i nomi degli scrittori separati da virgole
        </div>
