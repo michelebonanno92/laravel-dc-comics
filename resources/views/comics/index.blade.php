@@ -34,7 +34,10 @@
             <td>
                {{-- dove mettiamo la rotta show , poi il parametro che si scrive in maniera esplicita con un array associativo con il nome del parametro in questo caso "comic" e poi il valore dell'id che deve prendere il parametro stesso --}}
                <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">
-                  VEDI
+                  Vedi
+               </a>
+               <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">
+                  Modifica
                </a>
             </td>
 
