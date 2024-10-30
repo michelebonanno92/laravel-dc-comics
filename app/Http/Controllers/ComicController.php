@@ -111,6 +111,8 @@ class ComicController extends Controller
         // $comic = Comic::findOrFail($comic);
 
         $data = $request->all();
+
+        // $data['artists'] = '-';
         // dd($data);
         // rispetto all'create qui non mi serve una nuova istanza di comic ma modifico quella già creata
         // $comic->title = $data['title'];
@@ -147,8 +149,21 @@ class ComicController extends Controller
      * Remove the specified resource from storage.
      * Rimuovere la risorsa specificata dall'archivio.
      */
-    public function destroy(Comic $comic)
+    // public function destroy(Comic $comic)
+    // {
+    //     $comic = Comic::findOrFail($id);
+
+    //     $comic->delete();
+
+    //     return redirect()->route('comics.index');
+
+    // }
+    public function destroy(String $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+    
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
