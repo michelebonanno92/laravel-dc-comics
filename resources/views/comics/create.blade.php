@@ -7,6 +7,17 @@
    Crea Comic
 </h1>
 
+@if ($errors->any())
+  <div class="alert alert-danger my-4">
+    <ul>
+      @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+@endif
+
+  </div>
+
 <form action="{{ route('comics.store') }}" method="POST">
    @csrf
    <div class="mb-3">
