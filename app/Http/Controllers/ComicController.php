@@ -149,21 +149,21 @@ class ComicController extends Controller
      * Remove the specified resource from storage.
      * Rimuovere la risorsa specificata dall'archivio.
      */
-    // public function destroy(Comic $comic)
-    // {
-    //     $comic = Comic::findOrFail($id);
-
-    //     $comic->delete();
-
-    //     return redirect()->route('comics.index');
-
-    // }
-    public function destroy(String $id)
+    // con la Dependency injection non ho bisogno del FindOrFail
+    public function destroy(Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
-    
         $comic->delete();
 
         return redirect()->route('comics.index');
+
     }
+    // oppure
+    // public function destroy(String $id)
+    // {
+    //     $comic = Comic::findOrFail($id);
+    
+    //     $comic->delete();
+
+    //     return redirect()->route('comics.index');
+    // }
 }
