@@ -23,6 +23,11 @@
    <div class="mb-3">
       <label for="title" class="form-label">Titolo<span class="text-danger">*</span></label>
       <input type="text" class="form-control" id="title" name="title" required maxlength="128" placeholder="Inserisci il titolo">
+      @error('title')
+        <div class="alert alert-danger mt-2">
+           Errore Titolo: {{ $message }}
+        </div>
+      @enderror
     </div>
 
     <div class="mb-3">
