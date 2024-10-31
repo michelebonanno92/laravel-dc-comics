@@ -127,6 +127,22 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
 
+        $request->validate([
+            'title' => 'required|min:3|max:128|',
+            'description'=> 'required|min:1|max:4096|',
+            'thumb'=> 'nullable|max:2048|url',
+            'price' => 'required',
+            'series' => 'required|min:1|max:64',
+            'sale_date' => 'nullable|date|max:10',
+            'type' => 'required',
+            'artists' => 'nullable',
+            'writers' => 'nullable',
+        ], [
+            // sovrascritto errore cvalidazione sul titolo
+            'title.min' => 'Il campo Titolo deve avere almeno 3 caratteri'
+        ]);
+
+        dd('Validato con successo');
         // $comic = Comic::findOrFail($comic);
 
         $data = $request->all();
