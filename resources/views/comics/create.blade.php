@@ -56,7 +56,7 @@
 
     <div class="mb-3">
       <label for="price" class="form-label">Prezzo<span class="text-danger">*</span></label>
-      <input type="number" class="form-control" id="price" name="price" placeholder="Inserisci il prezzo" required max="999.99">
+      <input type="number" class="form-control @error('price') is-invalid @enderror"    id="price" name="price" placeholder="Inserisci il prezzo" required max="999.99">
     </div>
    </div>
 
