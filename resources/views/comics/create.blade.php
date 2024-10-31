@@ -49,9 +49,21 @@
     <div class="mb-3">
       <label for="type" class="form-label">Tipo<span class="text-danger">*</span> </label>
       <select class="form-select" id="type" name="type" required maxlength="64">
-         <option selected disabled>Seleziona un tipo</option>
-         <option value="comic book">Fumetto</option>
-         <option value="graphic novel">Graphic novel</option>
+         <option 
+            @if (old('type') === null || old('type') == '')
+                selected
+            @endif 
+            disabled>Seleziona un tipo</option>
+         <option 
+            @if (old('type') == 'Fumetto')
+                selected
+            @endif
+            value="comic book">Fumetto</option>
+        <option 
+            @if (old('type') == 'Graphic novel')
+                selected
+            @endif
+            value="graphic novel">Graphic novel</option>
        </select>
     </div>
 
