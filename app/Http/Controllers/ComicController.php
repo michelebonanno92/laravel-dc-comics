@@ -36,7 +36,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:2|max:128|',
+            'title' => 'required|min:3|max:128|',
             'description'=> 'required|min:1|max:4096|',
             'thumb'=> 'nullable|max:2048|url',
             'price' => 'required',
@@ -45,6 +45,9 @@ class ComicController extends Controller
             'type' => 'required',
             'artists' => 'nullable',
             'writers' => 'nullable',
+        ], [
+            // sovrascritto errore cvalidazione sul titolo
+            'title.min' => 'Il campo Titolo deve avere almeno 3 caratteri'
         ]);
 
         dd('Validato con successo');
