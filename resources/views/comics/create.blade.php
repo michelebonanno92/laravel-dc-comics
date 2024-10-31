@@ -50,6 +50,7 @@
       <label for="type" class="form-label">Tipo<span class="text-danger">*</span> </label>
       <select class="form-select" id="type" name="type" required maxlength="64">
          <option 
+         {{-- usato if per le select e attraverso l'old avremo la selezione fatta precedentemente dell'errore --}}
             @if (old('type') === null || old('type') == '')
                 selected
             @endif 
