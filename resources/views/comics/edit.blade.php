@@ -7,6 +7,15 @@
    Modifica {{ $comic->title }}
 </h1>
 
+@if ($errors->any())
+  <div class="alert alert-danger my-4">
+    <ul>
+      @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+@endif
+
 <form action="{{ route('comics.update',['comic' => $comic->id]) }}" method="POST">
    @csrf
    @method('PUT')
@@ -20,7 +29,13 @@
         name="title"
         required maxlength="128"
         placeholder="Inserisci il titolo"
-        value="{{ $comic->title }}">
+        {{-- aggiunti nel valiue dell'edit un secondo argomento che verrà preso nel caso in cui non si sia scatenato un errore e quindi non avremo l'old allora prenderà il valore di defoult  --}}
+        value="{{old('title'), $comic->title }}">
+        @error('title')
+        <div class="alert alert-danger mt-2">
+           Errore Titolo: {{ $message }}
+        </div>
+      @enderror
     </div>
 
     <div class="mb-3">
@@ -67,17 +82,17 @@
         required 
         maxlength="64">
          <option
-            @if (!isset($comic->type) ||  $comic->type == '')
+            @if (old('type', $comic->type) === null  ||  old('type', $comic->type) == '')
                selected
             @endif 
             disabled>Seleziona un tipo</option>
          <option 
-            @if ($comic->type == 'Fumetto')
+            @if (old('type', $comic->type) == 'Fumetto')
               selected
             @endif
             value="comic book">Fumetto</option>
          <option
-            @if ($comic->type == 'Graphic novel')
+            @if (old('type', $comic->type) == 'Graphic novel')
               selected
             @endif 
             value="graphic novel">Graphic novel</option>

@@ -50,8 +50,6 @@ class ComicController extends Controller
             'title.min' => 'Il campo Titolo deve avere almeno 3 caratteri'
         ]);
 
-        dd('Validato con successo');
-
 
         $data = $request->all();
         // dd($data);
@@ -142,7 +140,7 @@ class ComicController extends Controller
             'title.min' => 'Il campo Titolo deve avere almeno 3 caratteri'
         ]);
 
-        dd('Validato con successo');
+        // dd('Validato con successo');
         // $comic = Comic::findOrFail($comic);
 
         $data = $request->all();
