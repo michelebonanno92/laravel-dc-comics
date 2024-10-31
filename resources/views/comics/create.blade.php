@@ -23,6 +23,7 @@
    <div class="mb-3">
       <label for="title" class="form-label">Titolo<span class="text-danger">*</span></label>
       <input type="text" class="form-control" id="title" name="title" required maxlength="128" placeholder="Inserisci il titolo"  value="{{old('title')}}">
+      {{-- l'old serve per quando si scatena un errore dove i vari campi rimangono riempiti del precedente  valore inserito atraverso il value--}}
       @error('title')
         <div class="alert alert-danger mt-2">
            Errore Titolo: {{ $message }}
